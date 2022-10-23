@@ -29,7 +29,7 @@ async def filter(client, message):
         except UserNotParticipant:
             await client.send_message(
                 chat_id=message.from_user.id,
-                text="**Please Join My Updates Channel to use this Bot!**",
+                text="𝐏𝐥𝐞𝐚𝐬𝐞 𝐉𝐨𝐢𝐧 𝐌𝐲 𝐔𝐩𝐝𝐚𝐭𝐞𝐬 𝐂𝐡𝐚𝐧𝐧𝐞𝐥 𝐭𝐨 𝐮𝐬𝐞 𝐭𝐡𝐢𝐬 𝐁𝐨𝐭! 👇 ഈ ചാനലിൽ ജോയിൻ ചെയ്‌താൽ മാത്രമേ 𝐁𝐎𝐓 സിനിമ തരു 😊",
                 reply_markup=InlineKeyboardMarkup(
                     [
                         [
@@ -277,8 +277,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
         elif query.data == "help":
             buttons = [
                 [
-                    InlineKeyboardButton('Update Channel', url='t.me/Mo_Tech_YT'),
-                    InlineKeyboardButton('Source Code', url=f'{TUTORIAL}')
+                    InlineKeyboardButton('⭕️ 𝐌𝐎𝐕𝐈𝐄𝐒', url='https://t.me/cinemapranthantheatre'),
+                    InlineKeyboardButton('𝐂𝐇𝐀𝐍𝐍𝐄𝐋 ⭕️', url='https://t.me/+VEofHNTk4MQ1ZTFl')
                 ]
                 ]
             await query.message.edit(text=f"{HELP}", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
@@ -286,8 +286,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
         elif query.data == "about":
             buttons = [
                 [
-                    InlineKeyboardButton('Update Channel', url='t.me/Mo_Tech_YT'),
-                    InlineKeyboardButton('Source Code', url=f'{TUTORIAL}')
+                    InlineKeyboardButton('⭕️ 𝐒𝐄𝐑𝐈𝐄𝐒', url='https://t.me/cinemapranthangroup_s'),
+                    InlineKeyboardButton('𝐒𝐔𝐁𝐒𝐂𝐑𝐈𝐁𝐄 ⭕️', url='https://t.me/+82QaF6OUOVFlMmZl')
                 ]
                 ]
             await query.message.edit(text=f"{ABOUT}", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
@@ -310,7 +310,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     f_caption = f"{files.file_name}"
                 buttons = [
                     [
-                        InlineKeyboardButton('🖥️ How To Own 🖥️', url=f'{TUTORIAL}')
+                        InlineKeyboardButton('🔗 𝐂𝐏 𝐋𝐈𝐍𝐊𝐒 🔗', url='https://t.me/TinsonTs')
                     ]
                     ]
                 
@@ -323,7 +323,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     )
         elif query.data.startswith("checksub"):
             if AUTH_CHANNEL and not await is_subscribed(client, query):
-                await query.answer("I Like Your Smartness, But Don't Be Oversmart 😒",show_alert=True)
+                await query.answer("I Like Your Smartness, But Don't Be Oversmart 😏 𝐒𝐔𝐁𝐒𝐂𝐑𝐈𝐁𝐄 ചെയ്യൂ മൂത്ത 😊",show_alert=True)
                 return
             ident, file_id = query.data.split("#")
             filedetails = await get_file_details(file_id)
@@ -341,7 +341,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     f_caption = f"{title}"
                 buttons = [
                     [
-                        InlineKeyboardButton('🖥️ How To Own 🖥️', url=f'{TUTORIAL}')
+                        InlineKeyboardButton('𝐃𝐄𝐕𝐄𝐋𝐎𝐏𝐄𝐑 🥷', url='https://t.me/TinsonThomas_22')
                     ]
                     ]
                 
@@ -357,4 +357,4 @@ async def cb_handler(client: Client, query: CallbackQuery):
         elif query.data == "pages":
             await query.answer()
     else:
-        await query.answer("കൌതുകും ലേശം കൂടുതൽ ആണല്ലേ👀",show_alert=True)
+        await query.answer("മറ്റുള്ളവരുടേ 𝐬𝐞𝐚𝐫𝐜𝐡 ലിസ്റ്റിൽ കൈ ഇടാതെ സ്വന്തമായ് 𝐬𝐞𝐚𝐫𝐜𝐡 ചെയ്തിട്ട് അതിൽ നോക്കുക.🧐 𝐃𝐨𝐧'𝐭 𝐭𝐫𝐲 𝐭𝐨 𝐜𝐥𝐢𝐜𝐤 𝐨𝐧 𝐨𝐭𝐡𝐞𝐫𝐬 𝐬𝐞𝐚𝐫𝐜𝐡𝐞𝐝 𝐟𝐢𝐥𝐞.𝐒𝐞𝐚𝐫𝐜𝐡 𝐢𝐭 𝐲𝐨𝐮𝐫𝐬𝐞𝐥𝐟 𝐟𝐢𝐫𝐬𝐭, 𝐥𝐢𝐤𝐞 𝐨𝐭𝐡𝐞𝐫𝐬 🧐",show_alert=True)
