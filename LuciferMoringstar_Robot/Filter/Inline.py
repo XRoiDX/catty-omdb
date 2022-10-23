@@ -88,9 +88,11 @@ async def answer(bot, query):
 
 
 def get_reply_markup(query):
-    buttons = [ InlineKeyboardButton("➕ 𝙰𝙳𝙳 𝙼𝙴 𝚃𝙾 𝚈𝙾𝚄𝚁 𝙶𝚁𝙾𝚄𝙿𝚂 ➕", url=f"http://t.me/{temp.Bot_Username}?startgroup=true") ],
-                      [ InlineKeyboardButton("🗂 𝙼𝙾𝚅𝙸𝙴𝚂", url="https://t.me/cinemapranthantheatre"), InlineKeyboardButton("𝚂𝚄𝙱𝚂𝙲𝚁𝙸𝙱𝙴 💝", url="https://t.me/+82QaF6OUOVFlMmZl") ],
-                      [ InlineKeyboardButton("ℹ️ 𝙷𝙴𝙻𝙿", callback_data="help"), InlineKeyboardButton("𝙰𝙱𝙾𝚄𝚃 🤠", callback_data="about") ]]
+    buttons = [[
+        InlineKeyboardButton('🔗 𝐂𝐏 𝐋𝐈𝐍𝐊𝐒 🔗', url='https://t.me/TinsonTs')
+        ],[
+        InlineKeyboardButton('𝐃𝐄𝐕𝐄𝐋𝐎𝐏𝐄𝐑 🥷', url='https://t.me/TinsonThomas_22')
+        ]]
     return InlineKeyboardMarkup(buttons)
 
 
