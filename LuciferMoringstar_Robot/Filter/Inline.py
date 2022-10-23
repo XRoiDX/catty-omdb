@@ -16,8 +16,8 @@ async def answer(bot, query):
     if AUTH_CHANNEL and not await is_subscribed(bot, query):
         await query.answer(results=[],
                            cache_time=0,
-                           switch_pm_text='You have to subscribe my channel to use the bot',
-                           switch_pm_parameter="subscribe")
+                           switch_pm_text='𝐏𝐥𝐞𝐚𝐬𝐞 𝐉𝐨𝐢𝐧 𝐌𝐲 𝐔𝐩𝐝𝐚𝐭𝐞𝐬 𝐂𝐡𝐚𝐧𝐧𝐞𝐥 𝐭𝐨 𝐮𝐬𝐞 𝐭𝐡𝐢𝐬 𝐁𝐨𝐭! 👇 ഈ ചാനലിൽ ജോയിൻ ചെയ്‌താൽ മാത്രമേ 𝐁𝐎𝐓 സിനിമ തരു 😊',
+                           switch_pm_parameter="𝐒𝐔𝐁𝐒𝐂𝐑𝐈𝐁𝐄")
         return
 
     results = []
@@ -88,14 +88,9 @@ async def answer(bot, query):
 
 
 def get_reply_markup(query):
-    buttons = [[
-        InlineKeyboardButton('Support Group', url='t.me/Mo_Tech_Group'),
-        InlineKeyboardButton('More Botz', url='t.me/MT_Botz')
-        ],[
-        InlineKeyboardButton('🖥️ How To Own 🖥️', url=f'{TUTORIAL}')
-        ],[
-        InlineKeyboardButton('🔍 Search again 🔎', switch_inline_query_current_chat=query)
-        ]]
+    buttons = [[ InlineKeyboardButton("➕ 𝙰𝙳𝙳 𝙼𝙴 𝚃𝙾 𝚈𝙾𝚄𝚁 𝙶𝚁𝙾𝚄𝙿𝚂 ➕", url=f"http://t.me/{temp.Bot_Username}?startgroup=true") ],
+                      [ InlineKeyboardButton("🗂 𝙼𝙾𝚅𝙸𝙴𝚂", url="https://t.me/cinemapranthantheatre"), InlineKeyboardButton("𝚂𝚄𝙱𝚂𝙲𝚁𝙸𝙱𝙴 💝", url="https://t.me/+82QaF6OUOVFlMmZl") ],
+                      [ InlineKeyboardButton("ℹ️ 𝙷𝙴𝙻𝙿", callback_data="help"), InlineKeyboardButton("𝙰𝙱𝙾𝚄𝚃 🤠", callback_data="about") ]]
     return InlineKeyboardMarkup(buttons)
 
 
