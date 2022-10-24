@@ -32,7 +32,7 @@ async def start(bot, message):
             invite_link = await bot.create_chat_invite_link(int(AUTH_CHANNEL))
             try:
                 user = await bot.get_chat_member(int(AUTH_CHANNEL), message.from_user.id)
-                if user.status == parse_mode=enums.ChatMemberStatus.BANNED:
+                if user.status == enums.ChatMemberStatus.BANNED:
                     await bot.send_message(
                         chat_id=message.from_user.id,
                         text="Sorry Sir, You are Banned to use me.",
