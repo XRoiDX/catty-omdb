@@ -9,7 +9,7 @@ import aiofiles.os
 from Config import ADMINS
 from traceback import format_exc
 from pyrogram import Client, filters
-from Database import Database as db
+from LuciferMoringstar_Robot.Commands import db
 from pyrogram.errors import InputUserDeactivated, FloodWait, UserIsBlocked, PeerIdInvalid
 
 class temp(object):
