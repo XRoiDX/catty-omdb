@@ -2,6 +2,7 @@ import re
 import base64
 import logging
 from struct import pack
+from pyrogram import enums
 from pyrogram.errors import UserNotParticipant
 from pyrogram.file_id import FileId
 from pymongo.errors import DuplicateKeyError
@@ -170,7 +171,7 @@ async def is_subscribed(bot, query):
     except Exception as e:
         logger.exception(e)
     else:
-        if not user.status == 'kicked':
+        if not user.status == enums.ChatMemberStatus.BANNED
             return True
 
     return False
