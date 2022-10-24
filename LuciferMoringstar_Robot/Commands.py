@@ -1,6 +1,6 @@
 import os
 import logging
-from pyrogram import Client, filters
+from pyrogram import Client, filters, enums 
 from pyrogram import StopPropagation
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from Config import START_MSG, CHANNELS, ADMINS, AUTH_CHANNEL, CUSTOM_FILE_CAPTION, TUTORIAL, BROADCAST_CHANNEL, DB_URL, SESSION, ADMIN_ID    
@@ -33,11 +33,11 @@ async def start(bot, message):
             invite_link = await bot.create_chat_invite_link(int(AUTH_CHANNEL))
             try:
                 user = await bot.get_chat_member(int(AUTH_CHANNEL), message.from_user.id)
-                if user.status == "kicked":
+                if user.status == parse_mode=enums.ChatMemberStatus.BANNED:
                     await bot.send_message(
                         chat_id=message.from_user.id,
                         text="Sorry Sir, You are Banned to use me.",
-                        parse_mode="markdown",
+                        parse_mode=enums.ParseMode.MARKDOWN,
                         disable_web_page_preview=True
                     )
                     return
@@ -56,14 +56,14 @@ async def start(bot, message):
                             ]
                         ]
                     ),
-                    parse_mode="markdown"
+                    parse_mode=enums.ParseMode.MARKDOWN,
                 )
                 return
             except Exception:
                 await bot.send_message(
                     chat_id=message.from_user.id,
                     text="Something went Wrong.",
-                    parse_mode="markdown",
+                    parse_mode=enums.ParseMode.MARKDOWN,
                     disable_web_page_preview=True
                 )
                 return
@@ -114,7 +114,7 @@ async def start(bot, message):
     else:
         await message.reply_text(
             START_MSG,
-            parse_mode="Markdown",
+            parse_mode=enums.ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
                 [[
@@ -176,7 +176,7 @@ async def sts(c, m):
         return
     await m.reply_text(
         text=f"**Total Users in Database 📂:** `{await db.total_users_count()}`\n\n**Total Users with Notification Enabled 🔔 :** `{await db.total_notif_users_count()}`",
-        parse_mode="Markdown",
+        parse_mode=enums.ParseMode.MARKDOWN,
         quote=True
     )
 
@@ -330,6 +330,7 @@ async def delete(bot, message):
         await msg.edit('File is successfully deleted from database')
     else:
         await msg.edit('File not found in database')
+
 @Client.on_message(filters.command('about'))
 async def bot_info(bot, message):
     buttons = [
