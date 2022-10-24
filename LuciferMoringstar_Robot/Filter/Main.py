@@ -18,11 +18,11 @@ async def filter(client, message):
         invite_link = await client.create_chat_invite_link(int(AUTH_CHANNEL))
         try:
             user = await client.get_chat_member(int(AUTH_CHANNEL), message.from_user.id)
-            if user.status == enums.ChatMemberStatus.BANNED
+            if user.status == enums.ChatMemberStatus.BANNED:
                 await client.send_message(
                     chat_id=message.from_user.id,
                     text="Sorry Sir, You are Banned to use me.",
-                    parse_mode=enums.ParseMode.MARKDOWN
+                    parse_mode=enums.ParseMode.MARKDOWN,
                     disable_web_page_preview=True
                 )
                 return
@@ -37,14 +37,14 @@ async def filter(client, message):
                         ]
                     ]
                 ),
-                parse_mode=enums.ParseMode.MARKDOWN
+                parse_mode=enums.ParseMode.MARKDOWN,
             )
             return
         except Exception:
             await client.send_message(
                 chat_id=message.from_user.id,
                 text="Something went Wrong.",
-                parse_mode=enums.ParseMode.MARKDOWN
+                parse_mode=enums.ParseMode.MARKDOWN,
                 disable_web_page_preview=True
             )
             return
