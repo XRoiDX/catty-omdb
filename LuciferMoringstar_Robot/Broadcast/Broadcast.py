@@ -1,13 +1,30 @@
-import os, asyncio, aiofiles, aiofiles.os, datetime, random, string, time
+import os
+import time
+import string
+import random
+import asyncio
+import aiofiles
+import datetime
+import aiofiles.os
+from Config import ADMINS
+from traceback import format_exc
+from pyrogram import Client, filters
+from Database import Database as db
+from pyrogram.errors import InputUserDeactivated, FloodWait, UserIsBlocked, PeerIdInvalid
 
-async def send_broadcast(bot, update, db, send_msg, temp):    
+class temp(object):
+    broadcast_ids = {}
+
+
+@Client.on_message(filters.command("broadcast") & filters.user(ADMINS) & filters.private)
+async def send_broadcast(bot: Client, update):    
     all_users = await db.get_all_users()
     broadcast_msg = update.reply_to_message
     while True:
         broadcast_id = ''.join([random.choice(string.ascii_letters) for i in range(3)])
         if not temp.broadcast_ids.get(broadcast_id):
             break
-    out = await update.reply_text(text="**𝙱𝚁𝙾𝙰𝙳𝙲𝙰𝚂𝚃 𝙸𝙽𝙸𝚃𝙸𝙰𝚃𝙴𝙳..📣**\n   𝚈𝙾𝚄 𝚆𝙸𝙻𝙻 𝙱𝙴 𝙽𝙾𝚃𝙸𝙵𝙸𝙴𝙳 𝚆𝙸𝚃𝙷 𝙻𝙾𝙶 𝙵𝙸𝙻𝙴 𝚆𝙷𝙴𝙽 𝙰𝙻𝙻 𝚃𝙷𝙴 𝚄𝚂𝙴𝚁𝚂 𝙰𝚁𝙴 𝙽𝙾𝚃𝙸𝙵𝙸𝙴𝙳 🔔")
+    out = await update.reply_text(text="**𝙱𝚁𝙾𝙰𝙳𝙲𝙰𝚂𝚃 𝙸𝙽𝙸𝚃𝙸𝙰𝚃𝙴𝙳..📯**\n𝚈𝙾𝚄 𝚆𝙸𝙻𝙻 𝙱𝙴 𝙽𝙾𝚃𝙸𝙵𝙸𝙴𝙳 𝚆𝙸𝚃𝙷 𝙻𝙾𝙶 𝙵𝙸𝙻𝙴 𝚆𝙷𝙴𝙽 𝙰𝙻𝙻 𝚃𝙷𝙴 𝚄𝚂𝙴𝚁𝚂 𝙰𝚁𝙴 𝙽𝙾𝚃𝙸𝙵𝙸𝙴𝙳 🔉")
     start_time = time.time()
     total_users = await db.total_users_count()
     done = 0
@@ -29,14 +46,36 @@ async def send_broadcast(bot, update, db, send_msg, temp):
             if temp.broadcast_ids.get(broadcast_id) is None:
                 break
             else:
-                temp.broadcast_ids[broadcast_id].update(dict(current = done, failed = failed, success = success))
+                temp.broadcast_ids[broadcast_id].update(dict(current = done, failed = failed, success = success))                             
     if temp.broadcast_ids.get(broadcast_id):
         temp.broadcast_ids.pop(broadcast_id)
     completed_in = datetime.timedelta(seconds=int(time.time()-start_time))
-    await asyncio.sleep(3)    
+    await asyncio.sleep(0.5)    
     await out.delete()
     if failed == 0:
-        await update.reply_text(text=f"""**📣 𝙱𝚁𝙾𝙰𝙳𝙲𝙰𝚂𝚃 𝙲𝙾𝙼𝙿𝙻𝙴𝚃𝙴𝙳 𝙸𝙽** - `{completed_in}`\n\n𝚃𝙾𝚃𝙰𝙻 𝚄𝚂𝙴𝚁𝚂 {total_users}.\n𝚃𝙾𝚃𝙰𝙻 𝙳𝙾𝙽𝙴 {done}, {success} 𝚂𝚄𝙲𝙲𝙴𝚂𝚂 & {failed} 𝙵𝙰𝙸𝙻𝙴𝙳""", quote=True)        
+        await update.reply_text(text=f"""**🚀 𝙱𝚁𝙾𝙰𝙳𝙲𝙰𝚂𝚃 𝙲𝙾𝙼𝙿𝙻𝙴𝚃𝙴𝙳 𝙸𝙽** - `{completed_in}`\n\n𝚃𝙾𝚃𝙰𝙻 𝚄𝚂𝙴𝚁𝚂 {total_users}.\n𝚃𝙾𝚃𝙰𝙻 𝙳𝙾𝙽𝙴 {done}, {success} 𝚂𝚄𝙲𝙲𝙴𝚂𝚂 & {failed} 𝙵𝙰𝙸𝙻𝙴𝙳""", quote=True)        
     else:
-        await update.reply_document(document='broadcast.txt', caption=f"""** 📣 𝙱𝚁𝙾𝙰𝙳𝙲𝙰𝚂𝚃 𝙲𝙾𝙼𝙿𝙻𝙴𝚃𝙴𝙳 𝙸𝙽**- `{completed_in}`\n\n𝚃𝙾𝚃𝙰𝙻 𝚄𝚂𝙴𝚁𝚂 {total_users}.\n𝚃𝙾𝚃𝙰𝙻 𝙳𝙾𝙽𝙴 {done}, {success} 𝚂𝚄𝙲𝙲𝙴𝚂𝚂 & {failed} 𝙵𝙰𝙸𝙻𝙴𝙳""", quote=True)
+        await update.reply_document(document='broadcast.txt', caption=f"""** 🚀 𝙱𝚁𝙾𝙰𝙳𝙲𝙰𝚂𝚃 𝙲𝙾𝙼𝙿𝙻𝙴𝚃𝙴𝙳 𝙸𝙽**- `{completed_in}`\n\n𝚃𝙾𝚃𝙰𝙻 𝚄𝚂𝙴𝚁𝚂 {total_users}.\n𝚃𝙾𝚃𝙰𝙻 𝙳𝙾𝙽𝙴 {done}, {success} 𝚂𝚄𝙲𝙲𝙴𝚂𝚂 & {failed} 𝙵𝙰𝙸𝙻𝙴𝙳""", quote=True)
     await aiofiles.os.remove('broadcast.txt')
+
+
+
+async def send_msg(user_id, message):
+    try:
+        await message.copy(chat_id=user_id)
+        return 200, None
+    except FloodWait as e:
+        await asyncio.sleep(e.x)
+        return send_msg(user_id, message)
+    except InputUserDeactivated:
+        return 400, f"{user_id} : deactivated\n"
+    except UserIsBlocked:
+        return 400, f"{user_id} : blocked the bot\n"
+    except PeerIdInvalid:
+        return 400, f"{user_id} : user id invalid\n"
+    except Exception as e:
+        return 500, f"{user_id} : {format_exc()}\n"
+
+
+
+
