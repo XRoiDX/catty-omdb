@@ -11,6 +11,10 @@ from LuciferMoringstar_Robot import Media
 from Config import SESSION, API_ID, API_HASH, BOT_TOKEN
 from pyromod import listen
 
+from typing import Union, Optional, AsyncGenerator
+from pyrogram import types
+
+
 class Bot(Client):
 
     def __init__(self):
@@ -34,6 +38,22 @@ class Bot(Client):
     async def stop(self, *args):
         await super().stop()
         print("Bot stopped. Bye.")
+
+    async def iter_messages(
+        self,
+        chat_id: Union[int, str],
+        limit: int,
+        offset: int = 0,
+    ) -> Optional[AsyncGenerator["types.Message", None]]:       
+        current = offset
+        while True:
+            new_diff = min(200, limit - current)
+            if new_diff <= 0:
+                return
+            messages = await self.get_messages(chat_id, list(range(current, current+new_diff+1)))
+            for message in messages:
+                yield message
+                current += 1
 
 
 app = Bot()
