@@ -9,7 +9,7 @@ from pyrogram import Client, __version__
 from pyrogram.raw.all import layer
 from LuciferMoringstar_Robot import Media
 from Config import SESSION, API_ID, API_HASH, BOT_TOKEN
-import pyromod.listen
+from pyromod import listen
 
 class Bot(Client):
 
