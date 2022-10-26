@@ -3,7 +3,6 @@ from pyrogram.types import InlineKeyboardMarkup as markup, InlineKeyboardButton 
 from pyrogram.errors import ChannelInvalid, ChatAdminRequired, UsernameInvalid, UsernameNotModified
 from Config import ADMINS
 from LuciferMoringstar_Robot.Utils import save_file
-import pyromod.listen
 import logging
 import asyncio
 import re
