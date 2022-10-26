@@ -6,12 +6,14 @@ from LuciferMoringstar_Robot.Utils import save_file
 import logging
 import asyncio
 import re
+import os
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 lock = asyncio.Lock()
 
-Current = 2
+Current = int(os.environ.get("SKIP", 2))
+cancel = False
 
 @Client.on_callback_query(filters.regex(r'^index'))
 async def index_files(bot: Client, update: callback):
