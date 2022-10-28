@@ -117,7 +117,7 @@ async def start(bot, message):
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
                 [[
-                InlineKeyboardButton("⭕️ 𝐌𝐎𝐕𝐈𝐄𝐒", url="https://t.me/cinemapranthantheatre"),
+                InlineKeyboardButton("⭕️ 𝐌𝐎𝐕𝐈𝐄𝐒", url="https://t.me/cinemapranthangroup"),
                 InlineKeyboardButton("𝐒𝐔𝐁𝐒𝐂𝐑𝐈𝐁𝐄 ⭕️", url="https://t.me/+VEofHNTk4MQ1ZTFl")
                 ],[
                 InlineKeyboardButton("Help", callback_data="help"),
