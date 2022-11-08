@@ -16,7 +16,7 @@ async def answer(bot, query):
     if AUTH_CHANNEL and not await is_subscribed(bot, query):
         await query.answer(results=[],
                            cache_time=0,
-                           switch_pm_text='𝐏𝐥𝐞𝐚𝐬𝐞 𝐉𝐨𝐢𝐧 𝐌𝐲 𝐔𝐩𝐝𝐚𝐭𝐞𝐬 𝐂𝐡𝐚𝐧𝐧𝐞𝐥 𝐭𝐨 𝐮𝐬𝐞 𝐭𝐡𝐢𝐬 𝐁𝐨𝐭! 👇 ഈ ചാനലിൽ ജോയിൻ ചെയ്‌താൽ മാത്രമേ 𝐁𝐎𝐓 സിനിമ തരു 😊',
+                           switch_pm_text='𝐏𝐥𝐞𝐚𝐬𝐞 𝐉𝐨𝐢𝐧 𝐌𝐲 𝐔𝐩𝐝𝐚𝐭𝐞𝐬 𝐂𝐡𝐚𝐧𝐧𝐞𝐥 𝐭𝐨 𝐮𝐬𝐞 𝐭𝐡𝐢𝐬 𝐁𝐨𝐭! 👇 ഈ ചാനലിൽ ജോയിൻ ചെയ്‌താൽ മാത്രമേ 𝐁𝐎𝐓 പാട്ട് തരു 😊',
                            switch_pm_parameter="𝐒𝐔𝐁𝐒𝐂𝐑𝐈𝐁𝐄")
         return
 
@@ -89,9 +89,9 @@ async def answer(bot, query):
 
 def get_reply_markup(query):
     buttons = [[
-        InlineKeyboardButton('🔗 𝐂𝐏 𝐋𝐈𝐍𝐊𝐒 🔗', url='https://t.me/TinsonTs')
+        InlineKeyboardButton('🔗 𝐌𝐔𝐒𝐈𝐂 𝐆𝐑𝐀𝐌𝐀𝐌 🔗', url='https://t.me/musicgramam')
         ],[
-        InlineKeyboardButton('𝐃𝐄𝐕𝐄𝐋𝐎𝐏𝐄𝐑 🥷', url='https://t.me/TinsonThomas_22')
+        InlineKeyboardButton('𝐃𝐄𝐕𝐄𝐋𝐎𝐏𝐄𝐑 🥷', url='https://t.me/ALPHA_RIPS')
         ]]
     return InlineKeyboardMarkup(buttons)
 
