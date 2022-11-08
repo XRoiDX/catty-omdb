@@ -83,10 +83,10 @@ async def start(bot, message):
                     f_caption = f"{files.file_name}"
                 buttons = [
                     [
-                        InlineKeyboardButton('🔗 𝐂𝐏 𝐋𝐈𝐍𝐊𝐒 🔗', url='https://t.me/TinsonTs')
+                        InlineKeyboardButton('🔗 𝐌𝐔𝐒𝐈𝐂 𝐆𝐑𝐀𝐌𝐀𝐌 🔗', url='https://t.me/musicgramam')
                     ],
                     [
-                        InlineKeyboardButton('𝐃𝐄𝐕𝐄𝐋𝐎𝐏𝐄𝐑 🥷', url='https://t.me/TinsonThomas_22')
+                        InlineKeyboardButton('𝐃𝐄𝐕𝐄𝐋𝐎𝐏𝐄𝐑 🥷', url='https://t.me/ALPHA_RIPS')
                     ]
                     ]
                 await bot.send_cached_media(
@@ -117,8 +117,8 @@ async def start(bot, message):
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
                 [[
-                InlineKeyboardButton("⭕️ 𝐌𝐎𝐕𝐈𝐄𝐒", url="https://t.me/cinemapranthangroup"),
-                InlineKeyboardButton("𝐒𝐔𝐁𝐒𝐂𝐑𝐈𝐁𝐄 ⭕️", url="https://t.me/+VEofHNTk4MQ1ZTFl")
+                InlineKeyboardButton("⭕️ 𝐌𝐔𝐒𝐈𝐂𝐒", url="https://t.me/musicgramam"),
+                InlineKeyboardButton("𝐒𝐔𝐁𝐒𝐂𝐑𝐈𝐁𝐄 ⭕️", url="https://t.me/ALPHA_RIPS")
                 ],[
                 InlineKeyboardButton("Help", callback_data="help"),
                 InlineKeyboardButton("About", callback_data="about")
@@ -374,8 +374,8 @@ async def delete(bot, message):
 async def bot_info(bot, message):
     buttons = [
         [
-            InlineKeyboardButton('🔗 𝐂𝐏 𝐋𝐈𝐍𝐊𝐒 🔗', url='https://t.me/TinsonTs'),
-            InlineKeyboardButton('𝐃𝐄𝐕𝐄𝐋𝐎𝐏𝐄𝐑 🥷', url='https://t.me/TinsonThomas_22')
+            InlineKeyboardButton('🔗 𝐌𝐔𝐒𝐈𝐂 𝐆𝐑𝐀𝐌𝐀𝐌 🔗', url='https://t.me/musicgramam'),
+            InlineKeyboardButton('𝐃𝐄𝐕𝐄𝐋𝐎𝐏𝐄𝐑 🥷', url='https://t.me/ALPHA_RIPS')
         ]
         ]
     await message.reply(text=f"{ABOUT}", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
