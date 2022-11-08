@@ -29,7 +29,7 @@ async def filter(client, message):
         except UserNotParticipant:
             await client.send_message(
                 chat_id=message.from_user.id,
-                text="𝐏𝐥𝐞𝐚𝐬𝐞 𝐉𝐨𝐢𝐧 𝐌𝐲 𝐔𝐩𝐝𝐚𝐭𝐞𝐬 𝐂𝐡𝐚𝐧𝐧𝐞𝐥 𝐭𝐨 𝐮𝐬𝐞 𝐭𝐡𝐢𝐬 𝐁𝐨𝐭! 👇 ഈ ചാനലിൽ ജോയിൻ ചെയ്‌താൽ മാത്രമേ 𝐁𝐎𝐓 സിനിമ തരു 😊",
+                text="𝐏𝐥𝐞𝐚𝐬𝐞 𝐉𝐨𝐢𝐧 𝐌𝐲 𝐔𝐩𝐝𝐚𝐭𝐞𝐬 𝐂𝐡𝐚𝐧𝐧𝐞𝐥 𝐭𝐨 𝐮𝐬𝐞 𝐭𝐡𝐢𝐬 𝐁𝐨𝐭! 👇 ഈ ചാനലിൽ ജോയിൻ ചെയ്‌താൽ മാത്രമേ 𝐁𝐎𝐓 പാട്ട് തരു 😊",
                 reply_markup=InlineKeyboardMarkup(
                     [
                         [
@@ -277,8 +277,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
         elif query.data == "help":
             buttons = [
                 [
-                    InlineKeyboardButton('⭕️ 𝐌𝐎𝐕𝐈𝐄𝐒', url='https://t.me/cinemapranthangroup'),
-                    InlineKeyboardButton('𝐂𝐇𝐀𝐍𝐍𝐄𝐋 ⭕️', url='https://t.me/+VEofHNTk4MQ1ZTFl')
+                    InlineKeyboardButton('⭕️ 𝐌𝐔𝐒𝐈𝐂', url='https://t.me/musicgramam'),
+                    InlineKeyboardButton('𝐂𝐇𝐀𝐍𝐍𝐄𝐋 ⭕️', url='https://t.me/ALPHA_RIPS')
                 ]
                 ]
             await query.message.edit(text=f"{HELP}", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
@@ -286,8 +286,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
         elif query.data == "about":
             buttons = [
                 [
-                    InlineKeyboardButton('⭕️ 𝐒𝐄𝐑𝐈𝐄𝐒', url='https://t.me/cinemapranthangroup_s'),
-                    InlineKeyboardButton('𝐒𝐔𝐁𝐒𝐂𝐑𝐈𝐁𝐄 ⭕️', url='https://t.me/+82QaF6OUOVFlMmZl')
+                    InlineKeyboardButton('⭕️ 𝐌𝐔𝐒𝐈𝐂', url='https://t.me/musicgramam'),
+                    InlineKeyboardButton('𝐒𝐔𝐁𝐒𝐂𝐑𝐈𝐁𝐄 ⭕️', url='https://t.me/ALPHA_RIPS')
                 ]
                 ]
             await query.message.edit(text=f"{ABOUT}", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
@@ -310,7 +310,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     f_caption = f"{files.file_name}"
                 buttons = [
                     [
-                        InlineKeyboardButton('🔗 𝐂𝐏 𝐋𝐈𝐍𝐊𝐒 🔗', url='https://t.me/TinsonTs')
+                        InlineKeyboardButton('🔗 𝐌𝐔𝐒𝐈𝐂 𝐆𝐑𝐀𝐌𝐀𝐌 🔗', url='https://t.me/musicgramam')
                     ]
                     ]
                 
@@ -341,7 +341,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     f_caption = f"{title}"
                 buttons = [
                     [
-                        InlineKeyboardButton('𝐃𝐄𝐕𝐄𝐋𝐎𝐏𝐄𝐑 🥷', url='https://t.me/TinsonThomas_22')
+                        InlineKeyboardButton('𝐃𝐄𝐕𝐄𝐋𝐎𝐏𝐄𝐑 🥷', url='https://t.me/ALPHA_RIPS')
                     ]
                     ]
                 
